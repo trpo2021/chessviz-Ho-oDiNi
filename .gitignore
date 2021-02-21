@@ -1,1 +1,4 @@
 1.file
+*.o
+.main.c.swp
+main.c~
