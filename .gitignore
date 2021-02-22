@@ -1,3 +1,4 @@
+/chess
 *.o
-.main.c.swp
-main.c~
+.chess.c.swp
+chess.c~
