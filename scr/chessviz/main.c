@@ -1,6 +1,6 @@
-#include<iostream>
+#include <iostream>
 #include <stdlib.h>
-#include "func.h"
+#include <libchess/func.h>
 
 using namespace std; 
  
