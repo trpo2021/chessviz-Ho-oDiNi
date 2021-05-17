@@ -1,11 +1,11 @@
-CXXFLAGS = -Wall -Werror -Wextra -I src
+CXXFLAGS = -Wall -Werror -Wextra -I scr
 CXX = g++
 
-CH_SCR = src/chessviz/
-LIB_SCR = src/libchessviz/
+CH_SCR = scr/chessviz/
+LIB_SCR = scr/libchessviz/
 
-CH_OBJ = obj/src/chessviz/
-LIB_OBJ = obj/src/libchessviz/
+CH_OBJ = obj/scr/chessviz/
+LIB_OBJ = obj/scr/libchessviz/
 CH_BIN = bin/
 
 .PHONY: chessviz
