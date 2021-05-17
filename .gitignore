@@ -1,0 +1,6 @@
+/chess
+*.o
+.chess.c.swp
+chess.c~
+bin/*
+obj/*
