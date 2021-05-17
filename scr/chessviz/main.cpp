@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include <libchess/func.h>
+#include <libchessviz/func.h>
 
 using namespace std; 
  
@@ -35,6 +35,6 @@ int main()
 			cout  << "\n\nФигура так не ходит" << endl;
 			cout  << "Введите ход заного" << endl;
 		}
-	} while (x,y);         
+	} while (1);         
     return 0;
 }
