@@ -1,13 +1,28 @@
-all: bin/chess
+CXXFLAGS = -Wall -Werror -Wextra -I src
+CXX = g++
 
-bin/chess: obj/src/chess/main.o obj/src/libchess/libchess.a
-		g++ -Wall -Werror -I src -o bin/chess obj/src/chess/main.o obj/src/libchess/libchess.a
+CH_SCR = src/chessviz/
+LIB_SCR = src/libchessviz/
 
-obj/src/libchess/libchess.a: obj/src/libchess/func.o 
-		ar rcs obj/src/libchess/libchess.a obj/src/libchess/func.o
+CH_OBJ = obj/src/chessviz/
+LIB_OBJ = obj/src/libchessviz/
+CH_BIN = bin/
 
-obj/src/chess/main.o: src/chess/main.cpp
-		g++ -Wall -Werror -c -I src -o obj/src/chess/main.o src/chess/main.cpp
+.PHONY: chessviz
 
-obj/src/libchess/func.o: src/libchess/func.cpp
-		g++ -Wall -Werror -c -I src -o obj/src/libchess/func.o src/libchess/func.cpp
+$(CH_BIN)chessviz.exe: $(CH_OBJ)main.o $(LIB_OBJ)libchessviz.a
+	$(CXX) $(CXXFLAGS) -o $@ $^
+$(LIB_OBJ)libchessviz.a: $(LIB_OBJ)func.o
+	ar rcs $@ $^
+$(CH_OBJ)main.o: $(CH_SCR)main.cpp
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+$(LIB_OBJ)func.o: $(LIB_SCR)func.cpp
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+	
+-include main.d func.d
+
+clean:
+	rm $(CH_OBJ)*.o
+	rm $(LIB_OBJ)*.o
+	rm $(LIB_OBJ)*.a
+	rm $(CH_BIN)*.exe
